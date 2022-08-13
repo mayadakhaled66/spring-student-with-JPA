@@ -27,18 +27,22 @@ public class DemoApplication {
 	@Bean
 	CommandLineRunner  commandLineRunner(StudentRepository studentRepository, SchoolRepository schoolRepository){return args -> {
 		School egy =new School("nile school", "giza", "Egypt");
+		School asia = new School("asia school", "asia", "asia");
 		Student student = new Student("Mona","Ahmed","mona@gmail.com",new  HomeAddress("giza",1,2,"Egypt"),egy);
-		Student student2 = new Student("Nada","Ayman","nada@gmail.com",new  HomeAddress("giza",121,1,"Egypt"),new School("asia school", "asia", "asia"));
+		Student student2 = new Student("Nada","Ayman","nada@gmail.com",new  HomeAddress("giza",121,1,"Egypt"),asia);
 		Student student3 = new Student("Mohamed","Ahmed","Mohamed@gmail.com",new  HomeAddress("giza",4,42,"Egypt"),egy);
-		Set<Student> students = new HashSet<Student>();
-		students.add(student);
-		students.add(student2);
-		students.add(student3);
-		School school = new School("nile school", "giza", "Egypt", students);
-		School school2 = new School("asia school", "giza", "asia", null);
-		studentRepository.saveAll(students);
-//		schoolRepository.save(school);
-//		schoolRepository.save(school2);
+		Set<Student> studentsOfEgypt = new HashSet<Student>();
+		studentsOfEgypt.add(student);
+		studentsOfEgypt.add(student3);
+		Set<Student> studentsOfAsia = new HashSet<Student>();
+		studentsOfAsia.add(student2);
+		egy.setStudents(studentsOfEgypt);
+		asia.setStudents(studentsOfAsia);
+		schoolRepository.save(egy);
+		schoolRepository.save(asia);
+		studentRepository.saveAll(studentsOfEgypt);
+		studentRepository.saveAll(studentsOfAsia);
+//
 	};}
 
 }

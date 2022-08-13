@@ -19,7 +19,7 @@ public class School {
     private String streetName;
     @Column(name = "city")
     private String city;
-    @OneToMany
+    @OneToMany(mappedBy = "school")
     private Set<Student> students;
 
     public School( String schoolName, String streetName, String city, Set<Student> students) {
