@@ -21,7 +21,7 @@ public class Student {
     @OneToOne(cascade = CascadeType.ALL) //cascade is added due to object references an unsaved transient instance - save the transient instance before flushing error
     private HomeAddress homeAddress;
 
-    @ManyToOne()//cascade = CascadeType.ALL,fetch = FetchType.LAZY
+    @ManyToOne
     @JoinColumn(name = "school_id",nullable=false)  //FK
     private School school;
 

@@ -19,7 +19,6 @@ public class HomeAddress {
     @Column(name = "city")
     private String city;
 
-//    private Student
 
     public HomeAddress(){
 
