@@ -26,9 +26,9 @@ public class DemoApplication {
 	CommandLineRunner  commandLineRunner(StudentRepository studentRepository, SchoolRepository schoolRepository){return args -> {
 		School egy =new School("nile school", "giza", "Egypt");
 		School asia = new School("asia school", "asia", "asia");
-		Student student = new Student("Mona","Ahmed","mona@gmail.com",new  HomeAddress("giza",1,2,"Egypt"),egy);
-		Student student2 = new Student("Nada","Ayman","nada@gmail.com",new  HomeAddress("giza",121,1,"Egypt"),asia);
-		Student student3 = new Student("Mohamed","Ahmed","Mohamed@gmail.com",new  HomeAddress("giza",4,42,"Egypt"),egy);
+		Student student = new Student("Mona","Ahmed","mona@gmail.com",false,new  HomeAddress("giza",1,2,"Egypt"),egy);
+		Student student2 = new Student("Nada","Ayman","nada@gmail.com",true,new  HomeAddress("giza",121,1,"Egypt"),asia);
+		Student student3 = new Student("Mohamed","Ahmed","Mohamed@gmail.com",false,new  HomeAddress("giza",4,42,"Egypt"),egy);
 		Set<Student> studentsOfEgypt = new HashSet<Student>();
 		studentsOfEgypt.add(student);
 		studentsOfEgypt.add(student3);
