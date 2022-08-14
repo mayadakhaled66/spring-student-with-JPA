@@ -55,8 +55,8 @@ public class StudentController {
         return studentService.deleteStudentsWithEmail(studentEmail);
     }
 
-    @PutMapping(path = "/update")
-    public @ResponseBody ResponseEntity updateStudents(@RequestBody Student student) {
-        return studentService.updateStudents(student);
+    @PutMapping(path = "/update/{email}")
+    public @ResponseBody ResponseEntity updateStudents(@PathVariable("email") String studentEmail,@RequestBody Student student) {
+        return studentService.updateStudents(studentEmail,student);
     }
 }

@@ -97,12 +97,12 @@ public class StudentService {
     }
 
 
-    public ResponseEntity updateStudents(Student student) {
-        Student studentValue = studentRepository.findByEmail(student.getEmail());
+    public ResponseEntity updateStudents(String studentEmail, Student student) {
+        Student studentValue = studentRepository.findByEmail(studentEmail);
         if (studentValue == null) {
             return  ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
-                    .body("Student with email " + student.getEmail() + " is Not Found!");
+                    .body("Student with email " + studentEmail + " is Not Found!");
         } else {
             student.setId(studentValue.getId());
             student.getSchool().setId(studentValue.getSchool().getId());
