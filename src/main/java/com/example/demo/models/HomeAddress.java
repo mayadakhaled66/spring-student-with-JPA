@@ -1,4 +1,6 @@
-package com.example.demo.students;
+package com.example.demo.models;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -9,12 +11,16 @@ public class HomeAddress {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private int id;
     @Column(name = "street_name")
+    @JsonProperty("street_name")
     private String streetName;
     @Column(name = "building_no")
+    @JsonProperty("building_no")
     private int buildingNumber;
     @Column(name = "apartment_no")
+    @JsonProperty("apartment_no")
     private int apartmentNumber;
     @Column(name = "city")
     private String city;

@@ -1,9 +1,9 @@
 package com.example.demo;
 
 import com.example.demo.school.SchoolRepository;
-import com.example.demo.students.HomeAddress;
-import com.example.demo.school.School;
-import com.example.demo.students.Student;
+import com.example.demo.models.HomeAddress;
+import com.example.demo.models.School;
+import com.example.demo.models.Student;
 import com.example.demo.students.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

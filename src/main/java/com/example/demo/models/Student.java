@@ -1,6 +1,7 @@
-package com.example.demo.students;
+package com.example.demo.models;
 
-import com.example.demo.school.School;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -10,23 +11,29 @@ public class Student {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private int id;
     @Column(name = "first_name",nullable = false)
+    @JsonProperty("first_name")
     private String firstName;
     @Column(name = "last_name",nullable = false)
+    @JsonProperty("last_name")
     private String lastName;
     @Column(name = "email",unique = true,nullable = false)
     private String email;
 
     @Transient
     @Column(name = "is_graduated")
+    @JsonProperty("is_graduated")
     private boolean isGraduated;
 
-    @OneToOne(cascade = CascadeType.ALL) //cascade is added due to object references an unsaved transient instance - save the transient instance before flushing error
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonProperty("home_address")
     private HomeAddress homeAddress;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "school_id",nullable=false)  //FK
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private School school;
 
 

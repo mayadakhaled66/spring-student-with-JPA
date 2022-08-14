@@ -1,9 +1,9 @@
-package com.example.demo.school;
+package com.example.demo.address;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/school")
-public class SchoolController {
+@RequestMapping(path = "/address")
+public class AddressController {
 }

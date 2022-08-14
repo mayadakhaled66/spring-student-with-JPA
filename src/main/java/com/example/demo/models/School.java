@@ -1,8 +1,10 @@
-package com.example.demo.school;
+package com.example.demo.models;
 
-import com.example.demo.students.Student;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "School")
@@ -12,22 +14,20 @@ public class School {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private int id;
     @Column(name = "school_name",nullable = false)
+    @JsonProperty("school_name")
     private String schoolName;
     @Column(name = "street_name",nullable = false)
+    @JsonProperty("street_name")
     private String streetName;
     @Column(name = "city")
     private String city;
-    @OneToMany(mappedBy = "school")
-    private Set<Student> students;
+    @OneToMany(mappedBy = "school",fetch = FetchType.LAZY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private Set<Student> students = new HashSet<>();
 
-    public School( String schoolName, String streetName, String city, Set<Student> students) {
-        this.schoolName = schoolName;
-        this.streetName = streetName;
-        this.city = city;
-        this.students = students;
-    }
     public School() {
     }
 
