@@ -23,7 +23,7 @@ public class SchoolController {
     }
 
     @GetMapping(path = "/allSchoolsByCity/{city}")
-    public @ResponseBody Iterable<School> getAllSchoolssWithCity(@PathVariable("city") String city) {
+    public @ResponseBody Iterable<School> getAllSchoolsWithCity(@PathVariable("city") String city) {
         return schoolService.getSchoolsWithCityName(city);
     }
 
