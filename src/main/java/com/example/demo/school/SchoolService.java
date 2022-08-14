@@ -1,6 +1,7 @@
 package com.example.demo.school;
 
 import com.example.demo.models.School;
+import com.example.demo.models.StudentsSchoolDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,13 +27,13 @@ public class SchoolService {
         return addresses.size() == 0 ? new ArrayList<>() : addresses;
     }
 
-    public Iterable<SchoolByCityDto> getCountOfSchoolsByName() {
+    public Iterable<SchoolByCityDto> getCountOfSchoolsByCity() {
         List<SchoolByCityDto> schools = schoolRepository.countSchoolsByCity();
 
         return schools.size() == 0 ? new ArrayList<>() : schools;
     }
-    public Iterable<Object> getCountOfStudentsInSchoolsBySchoolName() {
-        List<Object> studentsNumbersList = schoolRepository.countStudentsInSchoolsBySchoolName();
+    public Iterable<StudentsSchoolDto> getCountOfStudentsInSchoolsBySchoolName() {
+        List<StudentsSchoolDto> studentsNumbersList = schoolRepository.countStudentsInSchoolsBySchoolName();
 
         return studentsNumbersList.size() == 0 ? new ArrayList<>() : studentsNumbersList;
     }

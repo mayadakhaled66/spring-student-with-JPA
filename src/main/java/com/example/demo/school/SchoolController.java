@@ -2,6 +2,7 @@ package com.example.demo.school;
 
 import com.example.demo.models.HomeAddress;
 import com.example.demo.models.School;
+import com.example.demo.models.StudentsSchoolDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,13 +27,13 @@ public class SchoolController {
         return schoolService.getSchoolsWithCityName(city);
     }
 
-    @GetMapping(path = "/countByName")
+    @GetMapping(path = "/countByCity")
     public @ResponseBody Iterable<SchoolByCityDto> getCountOfSchoolsByName( ) {
-        return schoolService.getCountOfSchoolsByName();
+        return schoolService.getCountOfSchoolsByCity();
     }
 
     @GetMapping(path = "/studentNumbersForSchoolsByName")
-    public @ResponseBody Iterable<Object> getCountOfStudentsByEachSchool( ) {
+    public @ResponseBody Iterable<StudentsSchoolDto> getCountOfStudentsByEachSchool( ) {
         return schoolService.getCountOfStudentsInSchoolsBySchoolName();
     }
 }
