@@ -5,11 +5,13 @@ import com.example.demo.models.HomeAddress;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Repository
 public interface AddressRepository extends JpaRepository<HomeAddress,Integer> {
 
-    List<HomeAddress> findByStreetNameIsContainingIgnoreCase(String name);
-    List<HomeAddress> findByCityIsContainingIgnoreCase(String city);
+    ArrayList<HomeAddress> findByStreetNameIsContainingIgnoreCaseOrderByStreetName(String name);
+    ArrayList<HomeAddress> findByCityIsContainingIgnoreCase(String city);
+
+//    ArrayList<HomeAddress> getHomeAddressesByApartmentNumberIsStartingWith();
 }
