@@ -2,14 +2,14 @@ package com.example.demo.models;
 
 public class StudentsSchoolDto {
     private String schoolName;
-    private long studentNumber;
+    private long numberOfStudents;
 
     public StudentsSchoolDto() {
     }
 
-    public StudentsSchoolDto(String schoolName, long studentNumber) {
+    public StudentsSchoolDto(String schoolName, long numberOfStudents) {
         this.schoolName = schoolName;
-        this.studentNumber = studentNumber;
+        this.numberOfStudents = numberOfStudents;
     }
 
     public String getSchoolName() {
@@ -20,11 +20,11 @@ public class StudentsSchoolDto {
         this.schoolName = schoolName;
     }
 
-    public long getStudentNumber() {
-        return studentNumber;
+    public long getNumberOfStudents() {
+        return numberOfStudents;
     }
 
-    public void setStudentNumber(long studentNumber) {
-        this.studentNumber = studentNumber;
+    public void setNumberOfStudents(long numberOfStudents) {
+        this.numberOfStudents = numberOfStudents;
     }
 }

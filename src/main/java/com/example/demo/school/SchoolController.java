@@ -22,17 +22,17 @@ public class SchoolController {
         return schoolService.getSchoolsWithSchoolName(schoolNameValue);
     }
 
-    @GetMapping(path = "/allSchoolsByCity/{city}")
+    @GetMapping(path = "/allSchoolsBy/{city}")
     public @ResponseBody Iterable<School> getAllSchoolsWithCity(@PathVariable("city") String city) {
         return schoolService.getSchoolsWithCityName(city);
     }
 
-    @GetMapping(path = "/countByCity")
+    @GetMapping(path = "/numberOfSchoolsByCities")
     public @ResponseBody Iterable<SchoolByCityDto> getCountOfSchoolsByName( ) {
         return schoolService.getCountOfSchoolsByCity();
     }
 
-    @GetMapping(path = "/studentNumbersForSchoolsByName")
+    @GetMapping(path = "/numberOfSchoolStudents")
     public @ResponseBody Iterable<StudentsSchoolDto> getCountOfStudentsByEachSchool( ) {
         return schoolService.getCountOfStudentsInSchoolsBySchoolName();
     }
